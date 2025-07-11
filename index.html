@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shashank - Portfolio</title>
+  <link rel="icon" href="https://opika.co/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    :root {
+      --primary-color: #FF4D71;
+      --secondary-color: #305A81;
+      --text-color: #ffffff;
+      --bg-gradient: linear-gradient(135deg, #FF4D71, #305A81);
+    }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+    header {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .header-content {
+      z-index: 1;
+    }
+    .header-content h1 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    .header-content p {
+      font-size: 1.2em;
+      margin: 5px 0;
+    }
+    .header-content .social-icons a {
+      margin: 0 10px;
+      color: #fff;
+      font-size: 1.5em;
+      transition: transform 0.3s;
+    }
+    .header-content .social-icons a:hover {
+      transform: scale(1.2);
+    }
+    .opika-logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      height: 50px;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 {
+      font-family: 'JetBrains Mono', monospace;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    /* Projects: n8n */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      transition: transform 0.2s;
+    }
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #1a1a1a;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 90%;
+      width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .close-modal {
+      float: right;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    /* Microapps Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #000;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <header>
+    <img src="logo.png" alt="Opika Logo" class="opika-logo"/>
+    <div class="header-content">
+      <h1>Shashank</h1>
+      <p>Ops Generalist @ Opika | Curious & Caffeinated<br></p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/shashankth/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://x.com/_Shashank_T_" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://github.com/Shashank123-hub" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:shashank@opika.co"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#what-i-do">What I Do</a>
+    <a href="#skills">Skills</a>
+    <a href="#n8n">Projects</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I began my journey as a <strong>software engineer</strong>, diving deep into how things are built from the ground up.</p>
+
+  <p>But it wasn’t long before I gravitated toward the <strong>business side of tech</strong> - curious about how startups grow, how teams scale, and how systems operate in the real world.</p>
+
+  <p>That shift led me into <strong>operations, hiring, and lead generation</strong>, where I’ve spent the past few years designing internal workflows, sourcing opportunities, and supporting founders hands-on.</p>
+
+  <p>Today, I sit at the intersection of <strong>execution and innovation</strong>: I run leadgen at Opika, support high-impact startup ops, and build <strong>automation workflows and GenAI-powered tools</strong> that drive real outcomes - not just prototypes.</p>
+
+  <p>It’s been a <strong>3+ year journey</strong> across code, business, and creation - and I’ve loved every part of it.</p>
+  </section>
+
+  <section id="what-i-do">
+    <h2>What I Actually Build & Run</h2>
+    <ul>
+      <li>Drive leadgen at Opika - daily startup sourcing, grant workflows, and funnel ops</li>
+      <li>Support founders + internal teams with hiring, onboarding, and system design</li>
+      <li>Build automation workflows using n8n, Telegram bots, and Google Sheets</li>
+      <li>Create GenAI-powered microapps for leadgen, demos, and internal tools</li>
+      <li>Blend business operations with technical builds to drive fast execution</li>
+    </ul>
+  </section>
+
+  <!-- 🟣 SKILLS SECTION -->
+<section id="skills" data-aos="fade-up">
+  <h2><i class="fas fa-tools"></i> Skills</h2>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Tools</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GenAI & Prompting</td>
+        <td>ChatGPT, Claude, Manus (prompt chaining, contextual workflows)</td>
+      </tr>
+      <tr>
+        <td>Automation Tools</td>
+        <td>n8n, Telegram bots, Google Sheets (API + dashboards)</td>
+      </tr>
+      <tr>
+        <td>Marketing Automation</td>
+        <td>MailerLite, ActiveCampaign, Wix (landing pages, automated campaigns)</td>
+      </tr>
+      <tr>
+        <td>CRM & Analytics</td>
+        <td>Zoho CRM, Zoho Analytics (workflow customization, dashboarding)</td>
+      </tr>
+      <tr>
+        <td>Programming</td>
+        <td>Python (intermediate), JavaScript (basic), Rust (beginner)</td>
+      </tr>
+      <tr>
+        <td>Ops & Strategy</td>
+        <td>Notion, Sheets, business process design, funnel optimization</td>
+      </tr>
+      <tr>
+        <td>Soft Skills</td>
+        <td>Cross-functional execution, startup-style ownership, fast learning loop</td>
+      </tr>
+      <tr>
+        <td>Cloud Infrastructure</td>
+        <td>AWS (EC2, RDS), GCP (CLI tools, hosting)</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+  <section id="n8n">
+    <h2>N8N Workflows</h2>
+    <div class="project-grid">
+      <div class="project-card" onclick="openModal('lead')">
+        <strong>Daily Lead Summary Automation</strong><br/>Sends daily summaries of all incoming leads directly to a Telegram group.
+      </div>
+      <div class="project-card" onclick="openModal('startups')">
+        <strong>Funded Startups Alert System</strong><br/>Detects and broadcasts newly funded startups every day to a Telegram group.
+      </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="modal-lead">
+      <span class="close-modal" onclick="closeModal('lead')">&times;</span>
+      <h3>Daily Lead Summary</h3>
+      <p><strong>Stack:</strong> n8n, Telegram API, Google Sheets, OpenAI</p>
+      <img src="Daily Leadgen Reporting - n8n.png" alt="Workflow"/>
+      <img src="Daily Leadgen Reporting – Telegram.png" alt="Telegram Output"/>
+    </div>
+
+    <div class="modal" id="modal-startups">
+      <span class="close-modal" onclick="closeModal('startups')">&times;</span>
+      <h3>Funded Startups Alert</h3>
+      <p><strong>Stack:</strong> n8n, News API, Telegram</p>
+      <img src="Recently Funded Startups - n8n.png" alt="Workflow"/>
+      <img src="Daily Startup Updates.png" alt="Output Screenshot"/>
+    </div>
+  </section>
+
+  <section id="microapps">
+    <h2>Microapps Built</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Tools Used</th>
+        <th>Link</th>
+      </tr>
+      <tr>
+        <td>Risk Exposure Visualizer</td>
+        <td>Visualizes risk exposure from unsecured cloud setups - built for Fr0ntierX demo</td>
+        <td>Manus, GPT</td>
+        <td><a href="https://awwywjtb.manus.space/" target="_blank">Link</a></td>
+      </tr>
+      <tr>
+        <td>AI Readiness Diagnostic</td>
+        <td>AI readiness audit for enterprise infra heads - maps compliance gaps</td>
+        <td>Manus, GPT</td>
+        <td><a href="https://avtuzfwm.manus.space/" target="_blank">Link</a></td>
+      </tr>
+      <tr>
+        <td>Numeric-AI ROI Estimator</td>
+        <td>Estimates ROI and efficiency gains from SriyaAI using KPI inputs</td>
+        <td>Manus, GPT</td>
+        <td><a href="https://iktpyukk.manus.space/" target="_blank">Link</a></td>
+      </tr>
+      <tr>
+        <td>Home Loan Calculator</td>
+        <td>A GPT + Vercel tool to calculate home loan EMIs based on user inputs</td>
+        <td>Vercel, GPT</td>
+        <td><a href="https://home-loan-calculator-three.vercel.app/" target="_blank">Link</a></td>
+      </tr>
+      <tr>
+        <td>Playability AI</td>
+        <td>Recommends PC games based on user specs, powered by AI prompts</td>
+        <td>Vercel, GPT</td>
+        <td><a href="https://playability-ai.vercel.app/" target="_blank">Link</a></td>
+      </tr>
+    </table>
+  </section>
+
+  <footer>
+    <p>© 2025 Shashank | All rights reserved</p>
+  </footer>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(`modal-${id}`).style.display = 'block';
+    }
+    function closeModal(id) {
+      document.getElementById(`modal-${id}`).style.display = 'none';
+    }
+
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80 },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3 },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1
+        },
+        move: { enable: true, speed: 2 }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>
